@@ -1,0 +1,6 @@
+[2018-05-01 11:41:49] select * from `users` where `id` = '4' limit 1
+[2018-05-01 11:41:49] select * from `users` where `id` = '4' limit 1
+[2018-05-01 11:41:49] select count(*) as aggregate from `posts` where `status` in ('0', '1')
+[2018-05-01 11:41:49] select `posts`.*, (select count(*) from `zans` where `posts`.`id` = `zans`.`post_id`) as `zans_count`, (select count(*) from `comments` where `posts`.`id` = `comments`.`post_id`) as `comments_count` from `posts` where `status` in ('0', '1') order by `created_at` desc limit 6 offset 0
+[2018-05-01 11:41:49] select * from `users` where `users`.`id` in ('1', '2', '3')
+[2018-05-01 11:41:49] select * from `topics`
