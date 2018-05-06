@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Libraries\EsSearchable;
 use \App\Model;
 use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Builder;
@@ -11,7 +12,7 @@ class Post extends Model
     /**
      * php artisan scout:import '\App\Post'
      */
-    use Searchable;
+    use Searchable,EsSearchable;
 
     protected $table = "posts";
 

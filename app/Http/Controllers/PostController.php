@@ -14,15 +14,18 @@ class PostController extends Controller
     public function index()
     {
         $user = \Auth::user();
-        $posts = Post::aviable()->orderBy('created_at', 'desc')->withCount(["zans", "comments"])->with(['user'])->paginate(6);
+        $posts = Post::aviable()->orderBy('created_at', 'desc')->withCount(["zans", "comments"])->with(
+            ['user']
+        )->paginate(6);
 
         return view('post/index', compact('posts'));
     }
 
     public function imageUpload(Request $request)
     {
-        $path = $request->file('wangEditorH5File')->storePublicly(md5(\Auth::id() . time()));
-        return asset('storage/'. $path);
+        $path = $request->file('wangEditorH5File')->storePublicly(md5(\Auth::id().time()));
+
+        return asset('storage/'.$path);
     }
 
     public function create()
@@ -32,12 +35,16 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required|max:255|min:4',
-            'content' => 'required|min:100',
-        ]);
+        $this->validate(
+            $request,
+            [
+                'title' => 'required|max:255|min:4',
+                'content' => 'required|min:100',
+            ]
+        );
         $params = array_merge(request(['title', 'content']), ['user_id' => \Auth::id()]);
         Post::create($params);
+
         return redirect('/posts');
     }
 
@@ -53,14 +60,18 @@ class PostController extends Controller
 
     public function update(Request $request, Post $post)
     {
-        $this->validate($request, [
-            'title' => 'required|max:255|min:4',
-            'content' => 'required|min:100',
-        ]);
+        $this->validate(
+            $request,
+            [
+                'title' => 'required|max:255|min:4',
+                'content' => 'required|min:100',
+            ]
+        );
 
         $this->authorize('update', $post);
 
         $post->update(request(['title', 'content']));
+
         return redirect("/posts/{$post->id}");
     }
 
@@ -69,15 +80,19 @@ class PostController extends Controller
      */
     public function comment(Post $post)
     {
-        $this->validate(request(),[
-            'content' => 'required|min:10',
-        ]);
+        $this->validate(
+            request(),
+            [
+                'content' => 'required|min:10',
+            ]
+        );
         $post_id = \request('post_id');
         $comment = new Comment();
         $comment->user_id = \Auth::id();
         $comment->content = \request('content');
 
         $post->comments()->save($comment);
+
         return back();
 
         /**
@@ -106,6 +121,7 @@ class PostController extends Controller
         $zan = new \App\Zan;
         $zan->user_id = \Auth::id();
         $post->zans()->save($zan);
+
         return back();
     }
 
@@ -115,6 +131,7 @@ class PostController extends Controller
     public function unzan(Post $post)
     {
         $post->zan(\Auth::id())->delete();
+
         return back();
     }
 
@@ -123,12 +140,16 @@ class PostController extends Controller
      */
     public function search()
     {
-        $this->validate(request(),[
-            'query' => 'required'
-        ]);
+        $this->validate(
+            request(),
+            [
+                'query' => 'required',
+            ]
+        );
 
         $query = request('query');
         $posts = Post::search(request('query'))->paginate(10);
+
         return view('post/search', compact('posts', 'query'));
     }
 }
