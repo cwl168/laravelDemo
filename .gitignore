@@ -6,3 +6,5 @@ Homestead.json
 Homestead.yaml
 .tags
 .tags1
+/storage
+/vendor
