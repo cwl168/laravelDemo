@@ -46,7 +46,8 @@ class EsEngine extends ElasticsearchEngine
                         'must' => [
                             [
                                 'query_string' => [
-                                    'query' => "*{$builder->query}*",
+//                                    'query' => "*{$builder->query}*", //影响"大数据" 分词
+                                    'query' => "{$builder->query}",
                                 ],
                             ],
                         ],
