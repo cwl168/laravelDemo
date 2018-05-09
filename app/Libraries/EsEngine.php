@@ -21,7 +21,7 @@ class EsEngine extends ElasticsearchEngine
             array_filter(
                 [
                     'numericFilters' => $this->filters($builder),
-                    'size' => $builder->limit,
+                    'size'           => $builder->limit,
                 ]
             )
         );
@@ -39,14 +39,14 @@ class EsEngine extends ElasticsearchEngine
     {
         $params = [
             'index' => $this->index,
-            'type' => $builder->model->searchableAs(),
-            'body' => [
+            'type'  => $builder->model->searchableAs(),
+            'body'  => [
                 'query' => [
                     'bool' => [
                         'must' => [
                             [
                                 'query_string' => [
-                                    'query' => "{$builder->query}",
+                                    'query' => "*{$builder->query}*",
                                 ],
                             ],
                         ],
@@ -63,6 +63,12 @@ class EsEngine extends ElasticsearchEngine
             $attributes = $builder->model->searchSettings['attributesToHighlight'];
             foreach ($attributes as $attribute) {
                 $params['body']['highlight']['fields'][$attribute] = new \stdClass();
+            }
+        }
+        if (isset($builder->model->searchSettings['attributesTag'])) {
+            $keywordTag = $builder->model->searchSettings['attributesTag'];
+            foreach ($keywordTag as $key => $tag) {
+                $params['body']['highlight'][$key] = $tag;
             }
         }
         if (isset($options['from'])) {
@@ -90,7 +96,6 @@ class EsEngine extends ElasticsearchEngine
      */
     public function map($results, $model)
     {
-        dd($results);
         if (count($results['hits']['total']) === 0) {
             return Collection::make();
         }
@@ -102,7 +107,7 @@ class EsEngine extends ElasticsearchEngine
         )->get()->keyBy($model->getKeyName());
 
         return collect($results['hits']['hits'])->map(
-            function ($hit) use ($model, $models) {
+            function ($hit) use ($models) {
                 $one = $models[$hit['_id']];
                 /**
                  * 这里返回的数据，如果有 highlight，就把对应的  highlight 设置到对象上面

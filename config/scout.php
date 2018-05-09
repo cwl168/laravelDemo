@@ -14,7 +14,7 @@ return [
     | Supported: "algolia", "null"
     |
     */
-
+    //重新定义了搜索引擎为 es,默认elasticsearch
     'driver' => env('SCOUT_DRIVER', 'es'),
 
     /*

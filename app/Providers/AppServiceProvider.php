@@ -17,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //重新定义了搜索引擎为 es
         resolve(EngineManager::class)->extend('es', function($app) {
             return new EsEngine(ElasticBuilder::create()
                 ->setHosts(config('scout.elasticsearch.hosts'))
