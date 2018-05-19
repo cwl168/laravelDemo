@@ -3,18 +3,17 @@
 namespace App;
 
 use App\Libraries\EsSearchable;
-use \App\Model;
 use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Builder;
 
 class Post extends Model
 {
-    /**
+    /*
      * php artisan scout:import '\App\Post'
      */
-    use Searchable,EsSearchable;
+    use Searchable, EsSearchable;
 
-    protected $table = "posts";
+    protected $table = 'posts';
 
     /*
      * 搜索的type
@@ -31,7 +30,6 @@ class Post extends Model
             'content' => $this->content,
         ];
     }
-
 
     /*
      * 所有评论
@@ -70,7 +68,10 @@ class Post extends Model
      */
     public function topics()
     {
-        return $this->belongsToMany(\App\Topic::class, 'post_topics', 'post_id', 'topic_id')->withPivot(['topic_id', 'post_id']);
+        return $this->belongsToMany(\App\Topic::class, 'post_topics', 'post_id', 'topic_id')->withPivot([
+            'topic_id',
+            'post_id',
+        ]);
     }
 
     public function postTopics()
@@ -80,11 +81,10 @@ class Post extends Model
 
     public function scopeTopicNotBy(Builder $query, $topic_id)
     {
-        return $query->doesntHave('postTopics', 'and', function($q) use ($topic_id) {
-            $q->where("topic_id", $topic_id);
+        return $query->doesntHave('postTopics', 'and', function ($q) use ($topic_id) {
+            $q->where('topic_id', $topic_id);
         });
     }
-
 
     public function scopeAuthorBy($query, $user_id)
     {
@@ -98,5 +98,4 @@ class Post extends Model
     {
         return $query->whereIn('status', [0, 1]);
     }
-
 }
