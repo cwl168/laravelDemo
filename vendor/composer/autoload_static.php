@@ -382,6 +382,8 @@ class ComposerStaticInita2c44dc62e0f7ae865d8d6f4c2e4be8e
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Jobs\\SendMessage' => __DIR__ . '/../..' . '/app/Jobs/SendMessage.php',
+        'App\\Libraries\\EsEngine' => __DIR__ . '/../..' . '/app/Libraries/EsEngine.php',
+        'App\\Libraries\\EsSearchable' => __DIR__ . '/../..' . '/app/Libraries/EsSearchable.php',
         'App\\Listeners\\QueryListener' => __DIR__ . '/../..' . '/app/Listeners/QueryListener.php',
         'App\\Model' => __DIR__ . '/../..' . '/app/Model.php',
         'App\\Notice' => __DIR__ . '/../..' . '/app/Notice.php',

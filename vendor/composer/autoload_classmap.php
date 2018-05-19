@@ -38,6 +38,8 @@ return array(
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Jobs\\SendMessage' => $baseDir . '/app/Jobs/SendMessage.php',
+    'App\\Libraries\\EsEngine' => $baseDir . '/app/Libraries/EsEngine.php',
+    'App\\Libraries\\EsSearchable' => $baseDir . '/app/Libraries/EsSearchable.php',
     'App\\Listeners\\QueryListener' => $baseDir . '/app/Listeners/QueryListener.php',
     'App\\Model' => $baseDir . '/app/Model.php',
     'App\\Notice' => $baseDir . '/app/Notice.php',
