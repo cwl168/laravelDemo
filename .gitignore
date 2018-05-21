@@ -8,3 +8,5 @@ Homestead.yaml
 .tags1
 /storage
 /vendor
+./vendor
+vendor

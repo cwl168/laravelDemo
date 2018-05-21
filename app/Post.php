@@ -20,7 +20,7 @@ class Post extends Model
      */
     public function searchableAs()
     {
-        return 'posts_index';
+        return 'posts_index';;
     }
 
     public function toSearchableArray()

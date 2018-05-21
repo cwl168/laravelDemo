@@ -16,6 +16,7 @@
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
+        "jakub-onderka/php-parallel-lint": "^1.0",
         "mockery/mockery": "0.9.*",
         "phpro/grumphp": "^0.14.0",
         "phpunit/phpunit": "~5.7",
