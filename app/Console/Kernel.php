@@ -26,6 +26,10 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+       /* $schedule->command('es:init')->everyMinute()->withoutOverlapping()->when(function (){
+            return 2>1;
+        });*/
+        $schedule->command('es:init')->cron('30 20 5 6 * 2018');
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendReminderEmail;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -70,4 +71,12 @@ class UserController extends Controller
         $user->save();
         return back();
     }
+
+    public function sendReminderEmail(){
+        $user = User::findOrFail('67');
+
+        $this->dispatch(new SendReminderEmail($user));
+        return 'xxxx';
+    }
+
 }
