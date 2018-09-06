@@ -13,6 +13,7 @@
         "laravel/scout": "^3.0",
         "laravel/tinker": "~1.0",
         "predis/predis": "~1.0",
+        "respect/validation": "^1.1",
         "sentry/sentry-laravel": "^0.9.0",
         "tamayo/laravel-scout-elastic": "^3.0"
     },

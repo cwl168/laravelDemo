@@ -34,6 +34,7 @@ return array(
     'Seld\\JsonLint\\' => array($vendorDir . '/seld/jsonlint/src/Seld/JsonLint'),
     'Seld\\CliPrompt\\' => array($vendorDir . '/seld/cli-prompt/src'),
     'ScoutEngines\\Elasticsearch\\' => array($vendorDir . '/tamayo/laravel-scout-elastic/src'),
+    'Respect\\Validation\\' => array($vendorDir . '/respect/validation/library'),
     'React\\Promise\\' => array($vendorDir . '/react/promise/src'),
     'Ramsey\\Uuid\\' => array($vendorDir . '/ramsey/uuid/src'),
     'Psy\\' => array($vendorDir . '/psy/psysh/src'),
