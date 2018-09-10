@@ -15,7 +15,8 @@
         "predis/predis": "~1.0",
         "respect/validation": "^1.1",
         "sentry/sentry-laravel": "^0.9.0",
-        "tamayo/laravel-scout-elastic": "^3.0"
+        "tamayo/laravel-scout-elastic": "^3.0",
+        "tymon/jwt-auth": "1.0.0-rc.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

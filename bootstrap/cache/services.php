@@ -32,6 +32,7 @@
     28 => 'ScoutEngines\\Elasticsearch\\ElasticsearchProvider',
     29 => 'Barryvdh\\Debugbar\\ServiceProvider',
     30 => 'Sentry\\SentryLaravel\\SentryLaravelServiceProvider',
+    31 => 'Tymon\\JWTAuth\\Providers\\LaravelServiceProvider',
   ),
   'eager' => 
   array (
@@ -53,6 +54,7 @@
     15 => 'ScoutEngines\\Elasticsearch\\ElasticsearchProvider',
     16 => 'Barryvdh\\Debugbar\\ServiceProvider',
     17 => 'Sentry\\SentryLaravel\\SentryLaravelServiceProvider',
+    18 => 'Tymon\\JWTAuth\\Providers\\LaravelServiceProvider',
   ),
   'deferred' => 
   array (
