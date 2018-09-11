@@ -22,7 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  * http://domain/api/auth/login
  */
 
-Route::group([
+/*Route::group([
     'middleware' => 'api',
     'prefix' => 'auth'
 ], function ($router) {
@@ -31,8 +31,15 @@ Route::group([
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
 
-});
 
-
+});*/
 Route::post('user/register', 'APIRegisterController@register');
-Route::post('user/login', 'APILoginController@login');
+Route::post('user/login', 'APILoginController@login');return auth()->user();
+
+/*Route::middleware('jwt.auth')->get('users', function(Request $request) {
+    return auth()->user();
+});*/
+
+Route::group(['middleware' => ['jwt.verify']], function() {
+    Route::get('user', 'UserController@getAuthenticatedUser');
+});
