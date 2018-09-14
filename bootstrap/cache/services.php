@@ -33,6 +33,7 @@
     29 => 'Barryvdh\\Debugbar\\ServiceProvider',
     30 => 'Sentry\\SentryLaravel\\SentryLaravelServiceProvider',
     31 => 'Tymon\\JWTAuth\\Providers\\LaravelServiceProvider',
+    32 => 'Dingo\\Api\\Provider\\LaravelServiceProvider',
   ),
   'eager' => 
   array (
@@ -55,6 +56,7 @@
     16 => 'Barryvdh\\Debugbar\\ServiceProvider',
     17 => 'Sentry\\SentryLaravel\\SentryLaravelServiceProvider',
     18 => 'Tymon\\JWTAuth\\Providers\\LaravelServiceProvider',
+    19 => 'Dingo\\Api\\Provider\\LaravelServiceProvider',
   ),
   'deferred' => 
   array (

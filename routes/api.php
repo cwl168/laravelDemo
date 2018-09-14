@@ -12,12 +12,6 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-/*
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-*/
 /**
  * http://domain/api/auth/login
  */
@@ -33,13 +27,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 });*/
-Route::post('user/register', 'APIRegisterController@register');
-Route::post('user/login', 'APILoginController@login');return auth()->user();
 
-/*Route::middleware('jwt.auth')->get('users', function(Request $request) {
-    return auth()->user();
-});*/
-
-Route::group(['middleware' => ['jwt.verify']], function() {
-    Route::get('user', 'UserController@getAuthenticatedUser');
+//dingo demo
+$api = app('Dingo\Api\Routing\Router');
+$api->version('v1', function ($api) {
+    $api->post('login', 'App\Http\Controllers\Api\LoginController@login');
+    $api->post('register', 'App\Http\Controllers\Api\RegisterController@register');
+    $api->group(['middleware' => 'jwt.verify'], function ($api) {
+        $api->get('logout', 'App\Http\Controllers\Api\LoginController@logout');
+        $api->resource('user', 'App\Http\Controllers\Api\UserController');
+    });
+    $api->get('refresh', 'App\Http\Controllers\Api\UserController@refresh');
 });

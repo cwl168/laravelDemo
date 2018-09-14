@@ -182,6 +182,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Sentry\SentryLaravel\SentryLaravelServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        Dingo\Api\Provider\LaravelServiceProvider::class,
 
     ],
 

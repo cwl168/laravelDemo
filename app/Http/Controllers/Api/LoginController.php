@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -10,7 +10,7 @@ use JWTAuth;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
-class APILoginController extends Controller
+class LoginController extends Controller
 {
     /**
      * @param \Illuminate\Http\Request $request
@@ -41,17 +41,10 @@ class APILoginController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function logout(Request $request)
+    public function logout()
     {
-        $this->validate($request, ['token' => 'required']);
+        auth('api')->logout();
 
-        try {
-            JWTAuth::invalidate($request->input('token'));
-
-            return response()->json(['success' => true, 'message' => "You have successfully logged out."]);
-        } catch (JWTException $e) {
-            // something went wrong whilst attempting to encode the token
-            return response()->json(['success' => false, 'error' => 'Failed to logout, please try again.'], 500);
-        }
+        return response()->json(['message' => 'Successfully logged out']);
     }
 }
