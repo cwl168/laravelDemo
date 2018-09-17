@@ -11,3 +11,4 @@ Homestead.yaml
 ./vendor/*
 /vendor
 .env
+composer.lock
