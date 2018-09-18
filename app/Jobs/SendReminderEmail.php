@@ -33,6 +33,7 @@ class SendReminderEmail implements ShouldQueue
     public function handle(Mailer $mailer)
     {
         //php artisan queue:listen --sleep 1 --delay 5 --tries 3 触发
+        //php artisan queue:work redis --queue=email --sleep 1 --delay 5 --tries 3
         $user = $this->user;
         $mailer->send('emails.reminder', ['user' => $user], function ($message) use ($user) {
             $message->to($user->email)->subject('新功能发布test1');

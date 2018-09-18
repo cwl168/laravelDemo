@@ -1,6 +1,6 @@
 <?php
 
-/*namespace App\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
@@ -37,12 +37,12 @@ class LoginController extends Controller
         \Auth::logout();
         return redirect('/login');
     }
-}*/
+}
 
 /**
  * dingo demo
  */
-namespace App\Http\Api\Auth;
+/*namespace App\Http\Api\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -80,4 +80,4 @@ class LoginController extends Controller
         JWTAuth::invalidate(JWTAuth::getToken());    //token加入黑名单(注销)
         $this->guard()->logout();
     }
-}
+}*/

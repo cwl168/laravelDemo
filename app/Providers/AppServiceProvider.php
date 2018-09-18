@@ -2,11 +2,14 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Libraries\EsEngine;
 use Laravel\Scout\EngineManager;
 use Elasticsearch\ClientBuilder as ElasticBuilder;
+use Illuminate\Support\Facades\Queue;
+use Illuminate\Queue\Events\JobFailed;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +27,13 @@ class AppServiceProvider extends ServiceProvider
                 ->build(),
                 config('scout.elasticsearch.index')
             );
+        });
+        Queue::failing(function (JobFailed $event) {
+            Log :: error('Queue failed', array_combine(['name', 'job', 'exception'], [
+                $event->connectionName,
+                $event->job->getRawBody(),
+                $event->exception->getMessage(),
+            ]));
         });
         //
         Schema::defaultStringLength(191);

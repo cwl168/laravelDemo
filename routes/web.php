@@ -10,8 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::get('/', "\App\Http\Controllers\UserController@sendReminderEmail");
-Route::get('/', "\App\Http\Controllers\LoginController@index");
+Route::get('/', "\App\Http\Controllers\UserController@sendReminderEmail");
+/*Route::get('/', "\App\Http\Controllers\LoginController@index");
 
 Route::group(['middleware' => 'auth:web'], function(){
     // 文章
@@ -52,4 +52,4 @@ Route::get('/logout', "\App\Http\Controllers\LoginController@logout");
 Route::get('/register', "\App\Http\Controllers\RegisterController@index");
 Route::post('/register', "\App\Http\Controllers\RegisterController@register");
 
-include_once("admin.php");
+include_once("admin.php");*/

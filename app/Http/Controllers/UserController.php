@@ -81,7 +81,8 @@ class UserController extends Controller
     {
         $user = User::findOrFail('67');
 
-        return $this->dispatch(new SendReminderEmail($user));
+//        return $this->dispatch((new SendReminderEmail($user))->onConnection('redis')->onQueue('email')); //onQueue 指定队列名称
+        return $this->dispatch((new SendReminderEmail($user))->onConnection('database')->onQueue('email')); //onQueue 指定队列名称
     }
 }
 
