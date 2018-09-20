@@ -183,6 +183,7 @@ return [
         Sentry\SentryLaravel\SentryLaravelServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         Dingo\Api\Provider\LaravelServiceProvider::class,
+        L5Swagger\L5SwaggerServiceProvider::class,
 
     ],
 

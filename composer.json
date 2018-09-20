@@ -9,6 +9,7 @@
         "almasaeed2010/adminlte": "~2.3.11",
         "arvenil/ninja-mutex": "*",
         "barryvdh/laravel-debugbar": "^2.3",
+        "darkaonline/l5-swagger": "5.4.*",
         "dingo/api": "2.0.0-alpha1",
         "guzzlehttp/guzzle": "^6.2",
         "laravel/framework": "5.4.*",
@@ -20,7 +21,8 @@
         "sentry/sentry-laravel": "^0.9.0",
         "spatie/fractalistic": "^2.7",
         "tamayo/laravel-scout-elastic": "^3.0",
-        "tymon/jwt-auth": "1.0.0-rc.2"
+        "tymon/jwt-auth": "1.0.0-rc.2",
+        "zircote/swagger-php": "2.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

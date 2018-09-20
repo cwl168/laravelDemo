@@ -34,6 +34,7 @@
     30 => 'Sentry\\SentryLaravel\\SentryLaravelServiceProvider',
     31 => 'Tymon\\JWTAuth\\Providers\\LaravelServiceProvider',
     32 => 'Dingo\\Api\\Provider\\LaravelServiceProvider',
+    33 => 'L5Swagger\\L5SwaggerServiceProvider',
   ),
   'eager' => 
   array (
@@ -57,6 +58,7 @@
     17 => 'Sentry\\SentryLaravel\\SentryLaravelServiceProvider',
     18 => 'Tymon\\JWTAuth\\Providers\\LaravelServiceProvider',
     19 => 'Dingo\\Api\\Provider\\LaravelServiceProvider',
+    20 => 'L5Swagger\\L5SwaggerServiceProvider',
   ),
   'deferred' => 
   array (
