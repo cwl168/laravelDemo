@@ -6,7 +6,7 @@
  *
  * @SWG\Swagger(
  *     basePath="",
- *     host="127.0.0.1",
+ *     host="laravel54.test.com",
  *     schemes={"http"},
  *     @SWG\Info(
  *         version="1.0",

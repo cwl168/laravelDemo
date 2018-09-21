@@ -21,8 +21,7 @@
         "sentry/sentry-laravel": "^0.9.0",
         "spatie/fractalistic": "^2.7",
         "tamayo/laravel-scout-elastic": "^3.0",
-        "tymon/jwt-auth": "1.0.0-rc.2",
-        "zircote/swagger-php": "2.*"
+        "tymon/jwt-auth": "1.0.0-rc.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
