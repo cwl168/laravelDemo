@@ -6,6 +6,7 @@ use App\Jobs\SendReminderEmail;
 use Illuminate\Http\Request;
 use App\User;
 use JWTAuth;
+use SimpleSoftwareIO\QrCode\BaconQrCodeGenerator as QrCode;
 use Tymon\JWTAuth\Exceptions;
 
 class UserController extends Controller
@@ -84,5 +85,13 @@ class UserController extends Controller
 //        return $this->dispatch((new SendReminderEmail($user))->onConnection('redis')->onQueue('email')); //onQueue 指定队列名称
         return $this->dispatch((new SendReminderEmail($user))->onConnection('database')->onQueue('email')); //onQueue 指定队列名称
     }
+    public function qrcode()
+    {
+        //return QrCode::size(100)->generate('http://fpjtest.datarj.com/einv/mb?g=bqw&q=b249NDYmc2k9ZmIxZDUzNTgwNGM4ZjlkZjFjZDc1NjEyODgwY2MzNmI=');
+        //QrCode::format('png')->size(200)->merge('/public/qrcodes/logo.png',.15)->generate('https://www.baidu.com',public_path('qrcodes/qrcode.png'));
+        return base64_encode((new QrCode())->format('png')->size(200)->merge('/public/qrcodes/logo.png',.15)->generate('https://www.baidu.com'));
+
+}
+
 }
 

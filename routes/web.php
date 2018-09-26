@@ -10,7 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', "\App\Http\Controllers\UserController@sendReminderEmail");
+//Route::get('/', "\App\Http\Controllers\UserController@sendReminderEmail");
+Route::get('/', "\App\Http\Controllers\UserController@qrcode");
 /*Route::get('/', "\App\Http\Controllers\LoginController@index");
 
 Route::group(['middleware' => 'auth:web'], function(){

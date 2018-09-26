@@ -185,6 +185,8 @@ return [
         Dingo\Api\Provider\LaravelServiceProvider::class,
         L5Swagger\L5SwaggerServiceProvider::class,
 
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class
+
     ],
 
     /*
@@ -238,6 +240,7 @@ return [
         'Sentry' => Sentry\SentryLaravel\SentryFacade::class,
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class
     ],
 
 ];
