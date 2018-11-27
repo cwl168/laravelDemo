@@ -91,7 +91,24 @@ class UserController extends Controller
         //QrCode::format('png')->size(200)->merge('/public/qrcodes/logo.png',.15)->generate('https://www.baidu.com',public_path('qrcodes/qrcode.png'));
         return base64_encode((new QrCode())->format('png')->size(200)->merge('/public/qrcodes/logo.png',.15)->generate('https://www.baidu.com'));
 
-}
+    }
+    public function pdfToImage()
+    {
+        /*$im = new \Imagick(public_path('pdftoimage/test.pdf'));
+        $im->setImageFormat('jpg');
+        header('Content-Type: image/jpeg');
+        echo $im;
+        exit;*/
+        $pathToPdf =  public_path('pdftoimage/test.pdf');
+        $pdf = new \Spatie\PdfToImage\Pdf($pathToPdf);
+        $saveImageUrl = public_path('pdftoimage/test.jpg');
+        $pdf->saveImage($saveImageUrl);
+
+        exit;
+        var_dump($pdf->getNumberOfPages());
+//        var_dump($pdf->setCompressionQuality(100)->saveImage($saveImageUrl));
+        var_dump($pdf->saveImage($saveImageUrl));
+    }
 
 }
 
