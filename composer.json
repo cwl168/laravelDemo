@@ -9,6 +9,7 @@
         "almasaeed2010/adminlte": "~2.3.11",
         "arvenil/ninja-mutex": "*",
         "barryvdh/laravel-debugbar": "^2.3",
+        "barryvdh/laravel-ide-helper": "2.2.3",
         "darkaonline/l5-swagger": "5.4.*",
         "dingo/api": "2.0.0-alpha1",
         "guzzlehttp/guzzle": "^6.2",
