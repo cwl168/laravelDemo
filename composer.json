@@ -20,6 +20,7 @@
         "predis/predis": "~1.0",
         "respect/validation": "^1.1",
         "sentry/sentry-laravel": "^0.9.0",
+        "simplesoftwareio/simple-qrcode": "^2.0",
         "spatie/fractalistic": "^2.7",
         "tamayo/laravel-scout-elastic": "^3.0",
         "tymon/jwt-auth": "1.0.0-rc.2"
