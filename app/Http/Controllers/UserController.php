@@ -8,6 +8,10 @@ use App\User;
 use JWTAuth;
 use SimpleSoftwareIO\QrCode\BaconQrCodeGenerator as QrCode;
 use Tymon\JWTAuth\Exceptions;
+use App\Http\Sms\SmsSenderContract;
+use App\Http\Sms\TwilioSender;
+use App\Http\Sms\NexmoSender;
+use PaymentGateway\PayFacade;
 
 class UserController extends Controller
 {
@@ -108,6 +112,33 @@ class UserController extends Controller
         var_dump($pdf->getNumberOfPages());
 //        var_dump($pdf->setCompressionQuality(100)->saveImage($saveImageUrl));
         var_dump($pdf->saveImage($saveImageUrl));
+    }
+    //注入实例  一个具体类的类名 反射
+    public function register(NexmoSender $smsSender)
+    {
+
+        $smsSender->send('{PHONE}', '{MESSAGE}');
+
+        return dd($smsSender);
+    }
+    //注入接口类型 需要serviceProvider提供绑定关系
+    public function register1(SmsSenderContract $smsSender)
+    {
+        $smsSender->send('{PHONE}', '{MESSAGE}');
+
+        return dd($smsSender);
+    }
+    /*public function register2()
+    {
+        $smsSender = \App::make(SmsSenderContract::class);
+        $smsSender->send('{PHONE}', '{MESSAGE}');
+
+        return dd($smsSender);
+    }*/
+    //定义自己的facade
+    public function myFacade()
+    {
+        Pay::test();
     }
 
 }

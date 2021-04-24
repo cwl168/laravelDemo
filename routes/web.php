@@ -10,8 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::get('/', "\App\Http\Controllers\UserController@sendReminderEmail");
-Route::get('/', "\App\Http\Controllers\UserController@pdfToImage");
+/*Route::get('/', function () {
+    return view('welcome');
+});*/
+//Route::group(['middleware'=>'cors'], function() {
+//    Route::any('/','\App\Http\Controllers\UserController@register');
+//});
+//Route::any('/','\App\Http\Controllers\UserController@myFacade');
+Route::get('/', "\App\Http\Controllers\UserController@register");
+//Route::get('/', "\App\Http\Controllers\UserController@pdfToImage");
 //Route::get('/', "\App\Http\Controllers\UserController@qrcode");
 /*Route::get('/', "\App\Http\Controllers\LoginController@index");
 

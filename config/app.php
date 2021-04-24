@@ -186,7 +186,9 @@ return [
         L5Swagger\L5SwaggerServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
-        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        App\Providers\SmsServiceProvider::class,
+        App\Providers\PaymentServiceProvider::class
 
     ],
 
@@ -241,7 +243,8 @@ return [
         'Sentry' => Sentry\SentryLaravel\SentryFacade::class,
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
-        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+        'Pay'=> PaymentGateway\PayFacade::class,
     ],
 
 ];
